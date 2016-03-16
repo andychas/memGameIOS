@@ -14,6 +14,7 @@
 		550E81D51C984095005830A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 550E81D31C984095005830A7 /* LaunchScreen.storyboard */; };
 		550E81E01C984095005830A7 /* testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E81DF1C984095005830A7 /* testTests.swift */; };
 		550E81EB1C984095005830A7 /* testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E81EA1C984095005830A7 /* testUITests.swift */; };
+		550E81F91C98412A005830A7 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550E81F81C98412A005830A7 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		550E81E61C984095005830A7 /* testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		550E81EA1C984095005830A7 /* testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testUITests.swift; sourceTree = "<group>"; };
 		550E81EC1C984095005830A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		550E81F81C98412A005830A7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				550E81D11C984095005830A7 /* Assets.xcassets */,
 				550E81D31C984095005830A7 /* LaunchScreen.storyboard */,
 				550E81D61C984095005830A7 /* Info.plist */,
+				550E81F81C98412A005830A7 /* CollectionViewCell.swift */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				550E81CD1C984095005830A7 /* ViewController.swift in Sources */,
 				550E81CB1C984095005830A7 /* AppDelegate.swift in Sources */,
+				550E81F91C98412A005830A7 /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
