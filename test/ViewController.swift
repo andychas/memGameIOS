@@ -35,6 +35,7 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
     
     @IBOutlet weak var collectionViewOutlet: UICollectionView!
     
+    @IBOutlet weak var timerLabel: UILabel!
     @IBAction func resetGame(sender: AnyObject) {
         
         // re enable all cells since reloadData() doesn't do it
@@ -55,6 +56,8 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
     var bg:String = "bg.png"
     var cell:CollectionViewCell? = nil
     var lastCell:CollectionViewCell? = nil
+    var startTime = NSTimeInterval()
+    var timer = NSTimer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +68,9 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         array += array
         
         array.shuffleInPlace()
+        let aSelector : Selector = "updateTime"
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: aSelector, userInfo: nil, repeats: true)
+        startTime = NSDate.timeIntervalSinceReferenceDate()
         
     }
 
@@ -124,4 +130,22 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         lastCell = cell
         collectionViewOutlet.userInteractionEnabled = true
    }
+    func updateTime(){
+        let currentTime = NSDate.timeIntervalSinceReferenceDate()
+        var elapsedTime: NSTimeInterval = currentTime - startTime
+        let minutes = UInt8(elapsedTime / 60.0)
+        elapsedTime -= (NSTimeInterval(minutes) * 60)
+        
+        let seconds = UInt8(elapsedTime)
+        elapsedTime -= NSTimeInterval(seconds)
+        
+        let fraction = UInt8(elapsedTime * 100)
+
+        let strMinutes = String(format: "%02d", minutes)
+        let strSeconds = String(format: "%02d", seconds)
+        let strFraction = String(format: "%02d", fraction)
+        
+        timerLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+        
+    }
 }
