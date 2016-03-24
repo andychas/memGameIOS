@@ -46,6 +46,12 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         collectionViewOutlet.reloadData()
         score = 0
         scoreLabel.text = "Score: \(score)"
+        
+        timer.invalidate()
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: aSelector, userInfo: nil, repeats: true)
+        startTime = NSDate.timeIntervalSinceReferenceDate()
+        
+        
     }
     
     @IBOutlet weak var scoreLabel: UILabel!
@@ -56,6 +62,7 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
     var bg:String = "bg.png"
     var cell:CollectionViewCell? = nil
     var lastCell:CollectionViewCell? = nil
+    let aSelector : Selector = "updateTime"
     var startTime = NSTimeInterval()
     var timer = NSTimer()
 
@@ -64,11 +71,13 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         // Do any additional setup after loading the view, typically from a nib.
         
         array = ["pinguin.png","snow.png","star.png","sock.png","santa.png","santaGifts.png","deer.png","piter.png",
-            "angel.png","bells.png","owl.png","snowMan.png"]
+            "angel.png","bells.png"]
         array += array
         
         array.shuffleInPlace()
-        let aSelector : Selector = "updateTime"
+        
+        // start the timer
+        
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: aSelector, userInfo: nil, repeats: true)
         startTime = NSDate.timeIntervalSinceReferenceDate()
         
